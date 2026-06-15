@@ -75,11 +75,11 @@ export default function TopBrands() {
             >
                 {allBrands.map((brand, index) => (
                     <SwiperSlide key={index}>
-                        <div className="max-w-[160px] max-h-[70px] mx-auto object-contain">
+                        <div className="flex items-center justify-center w-full h-auto">
                             <img
                                 src={brand.image}
                                 alt={brand.name}
-                                className="max-w-[180px] max-h-[80px] object-contain grayscale hover:grayscale-0 transition duration-300 hover:scale-105 "
+                                className="max-w-[140px] max-h-[60px] object-contain..."
                             />
                         </div>
                     </SwiperSlide>
