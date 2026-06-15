@@ -1,8 +1,10 @@
 {
+  
   "name": "solehub",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://harshvardhansingh5058.github.io/SoleHub-React-Project/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
