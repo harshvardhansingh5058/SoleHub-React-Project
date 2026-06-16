@@ -38,7 +38,7 @@ export default function WhyChooseUs() {
             id: 5,
             icon: Headphones,
             title: "Customer Support",
-            desc: "We're here to help you 24/7",
+            desc: "We're here to help you 24/7 , Number - 91928",
         },
     ];
 
@@ -59,7 +59,7 @@ export default function WhyChooseUs() {
                     return (
                         <div
                             key={item.id}
-                            className="border rounded-2xl p-6 hover:shadow-lg transition"
+                            className="border border-gray-400 rounded-2xl p-6 hover:shadow-lg transition"
                         >
                             <div className="w-14 h-14 rounded-full bg-gray-100 flex items-center justify-center mb-5">
                                 <Icon size={28} />

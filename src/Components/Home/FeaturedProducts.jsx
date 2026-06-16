@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import ProductCard from './ProductCard';
+import ProductCard from '../Product/ProductCard';
 import nikePegasus from "../../assets/images/nikePregasus.png";
 import adidasUltra from "../../assets/images/adidasUltraboost.png";
 import pumaRSX from "../../assets/images/pumaRs.png";

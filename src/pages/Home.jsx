@@ -1,22 +1,19 @@
 import React from 'react'
-import Header from '../Components/Common/Header'
 import { Ban } from 'lucide-react'
-import Banner from '../Components/Common/Banner'
-import CategorySlider from '../Components/Common/CategorySlider'
-import ProductCard from '../Components/Common/ProductCard'
-import FeaturedProducts from '../Components/Common/FeaturedProducts'
-import Offers from '../Components/Common/Offers'
-import TopBrands from '../Components/Common/TopBrands'
-import WhyChooseUs from '../Components/Common/WhyChooseUs'
-import Testimonials from '../Components/Common/Testimonials'
-import FollowUs from '../Components/Common/FollowUs'
-import StayUp from '../Components/Common/StayUp'
-import Footer from '../Components/Common/Footer'
+import Banner from '../Components/Home/Banner'
+import CategorySlider from '../Components/Home/CategorySlider'
+import ProductCard from '../Components/Product/ProductCard'
+import FeaturedProducts from "../Components/Home/FeaturedProducts";
+import Offers from '../Components/Home/Offers'
+import TopBrands from '../Components/Home/TopBrands'
+import WhyChooseUs from '../Components/Home/WhyChooseUs'
+import Testimonials from '../Components/Home/Testimonials'
+import FollowUs from '../Components/Home/FollowUs'
+import StayUp from '../Components/Home/StayUp'
 
 export default function Home() {
   return (
     <>
-      <Header/>
       <Banner/>
       <CategorySlider/>
       <FeaturedProducts/>
@@ -26,7 +23,6 @@ export default function Home() {
       <Testimonials/>
       <FollowUs/>
       <StayUp/>
-      <Footer/>
     </>
   )
 }
