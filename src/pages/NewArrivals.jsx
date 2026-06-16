@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Brands() {
+export default function NewArrivals() {
   return (
     <>
-      <h2>hloo</h2>
+      
     </>
   )
 }
