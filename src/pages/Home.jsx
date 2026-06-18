@@ -6,7 +6,7 @@ import ProductCard from '../Components/Product/ProductCard'
 import FeaturedProducts from "../Components/Home/FeaturedProducts";
 import Offers from '../Components/Home/Offers'
 import TopBrands from '../Components/Home/TopBrands'
-import WhyChooseUs from '../Components/Home/WhyChooseUs'
+import WhyChooseUs from '../Components/Common/WhyChooseUs'
 import Testimonials from '../Components/Home/Testimonials'
 import FollowUs from '../Components/Home/FollowUs'
 import StayUp from '../Components/Home/StayUp'
