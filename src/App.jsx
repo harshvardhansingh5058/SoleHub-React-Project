@@ -6,7 +6,7 @@ import { CartProvider } from "./Context/CartContext";
 export default function App() {
   return (
     <CartProvider>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </CartProvider>
   )
 }

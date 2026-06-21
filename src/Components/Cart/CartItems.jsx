@@ -2,6 +2,7 @@
 import React from "react";
 import { Minus, Plus, X } from "lucide-react";
 import { useCart } from "../../Context/CartContext";
+import EmptyCart from "./EmptyCart";
 
 const fmt = (n) => "₹" + n.toLocaleString("en-IN");
 const disc = (p, o) => Math.round((1 - p / o) * 100);
@@ -10,6 +11,11 @@ export default function CartItems() {
     // Cart now comes entirely from CartContext — single source of truth,
     // shared with Header's badge and ProductHero's addToCart.
     const { cart, incrementQty, decrementQty, removeFromCart } = useCart();
+
+    if (cart.length === 0) {
+        return <EmptyCart />;
+    }
+
     return (
         <div className="flex flex-col gap-4">
 
