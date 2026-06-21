@@ -1,6 +1,7 @@
 // EmptyCart.jsx
 import React from "react";
 import { ShoppingBag, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function EmptyCart() {
   return (
@@ -47,10 +48,12 @@ export default function EmptyCart() {
       </p>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
-      <button className="inline-flex items-center gap-2.5 bg-gray-900 hover:bg-gray-800 active:bg-black transition-colors text-white text-[11px] font-black uppercase tracking-widest px-8 py-4 rounded-xl group">
-        Continue Shopping
-        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
-      </button>
+      <Link to={"/"}>
+        <button className="inline-flex items-center gap-2.5 bg-gray-900 hover:bg-gray-800 active:bg-black transition-colors text-white text-[11px] font-black uppercase tracking-widest px-8 py-4 rounded-xl group">
+          Continue Shopping
+          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
+        </button>
+      </Link>
 
       {/* Subtle prompt */}
       <p className="mt-8 text-[10px] font-semibold uppercase tracking-widest text-gray-300">
