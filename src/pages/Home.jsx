@@ -2,7 +2,6 @@ import React from 'react'
 import { Ban } from 'lucide-react'
 import Banner from '../Components/Home/Banner'
 import CategorySlider from '../Components/Home/CategorySlider'
-import ProductCard from '../Components/Product/ProductCard'
 import FeaturedProducts from "../Components/Home/FeaturedProducts";
 import Offers from '../Components/Home/Offers'
 import TopBrands from '../Components/Home/TopBrands'

@@ -9,6 +9,9 @@ import Brands from "../pages/Brands";
 import NewArrivals from "../pages/NewArrivals";
 import Sale from "../pages/Sale";
 import Contact from "../pages/Contact";
+import ProductDetail from "../pages/ProductDetail";
+
+
 
 const router = createBrowserRouter(
     [
@@ -33,16 +36,13 @@ const router = createBrowserRouter(
                     element: <Brands />,
                 },
                 {
-                    path: "new-arrivals",
-                    element: <NewArrivals />,
-                },
-                {
-                    path: "sale",
-                    element: <Sale />,
-                },
-                {
                     path: "contact",
                     element: <Contact />,
+                },
+                {
+                    path: "product-detail/:id",
+                    element: <ProductDetail/>
+
                 },
             ],
         },

@@ -3,7 +3,7 @@ import Heroimg from "../../assets/images/banner-4.png";
 
 export default function Hero() {
   return (
-    <section className="max-w-7xl mx-auto ">
+    <section className="w-full mx-auto ">
 
       <div
         className="relative overflow-hidden min-h-[260px] sm:min-h-[300px] md:min-h-[340px] lg:min-h-[490px]"

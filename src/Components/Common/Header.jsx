@@ -15,9 +15,7 @@ export default function Header() {
     { id: 2, name: "Men", path: "/men", icon: Shirt },
     { id: 3, name: "Women", path: "/women", icon: ShoppingBag },
     { id: 4, name: "Brands", path: "/brands", icon: Tags },
-    { id: 5, name: "New Arrivals", path: "/new-arrivals", icon: Sparkles },
-    { id: 6, name: "Sale", path: "/sale", icon: Tag,  },
-    { id: 7, name: "Contact", path: "/contact", icon: Phone },
+    { id: 5, name: "Contact", path: "/contact", icon: Phone },
   ];
 
   return (
