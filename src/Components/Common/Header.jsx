@@ -1,17 +1,20 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   SportShoe, Search, User, ShoppingCart, Menu, X, House, Shirt, ShoppingBag, Tags, Phone, Sparkles, Tag, ChevronRight,
 } from "lucide-react";
+import { useCart } from "../../Context/CartContext";
 
+// pehle: const cartCount = JSON.parse(localStorage.getItem("cart"))?.length || 0;
 export default function Header() {
+  const { cartCount } = useCart(); // ✅ ab automatic live sync
   const [hovered, setHovered] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const cartCount = 3; // replace with actual cart state / context
+ 
 
   const navItems = [
-    { id: 1, name: "Home", path: "/", icon: House, home : true},
+    { id: 1, name: "Home", path: "/", icon: House, home: true },
     { id: 2, name: "Men", path: "/men", icon: Shirt },
     { id: 3, name: "Women", path: "/women", icon: ShoppingBag },
     { id: 4, name: "Brands", path: "/brands", icon: Tags },
@@ -19,7 +22,7 @@ export default function Header() {
   ];
 
   return (
-    <div className="sticky top-0 z-50">
+    <div className="sticky top-0 z-50 left-0">
 
       {/* ── Announcement Bar ── */}
       <div className="bg-black text-white">
@@ -110,17 +113,21 @@ export default function Header() {
                 <User size={20} className="text-gray-800" />
               </button>
 
-              <button
-                title="Cart"
-                className="relative p-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer"
-              >
-                <ShoppingCart size={20} className="text-gray-800" />
-                {cartCount > 0 && (
-                  <span className="absolute -top-0.5 -right-0.5 min-w-[18px] h-[18px] bg-black text-white text-[10px] font-bold rounded-full flex items-center justify-center leading-none px-0.5">
-                    {cartCount}
-                  </span>
-                )}
-              </button>
+
+
+              <Link to="/cart">
+                <button
+                  title="Cart"
+                  className="relative p-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer"
+                >
+                  <ShoppingCart size={20} className="text-gray-800" />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] bg-black text-white text-[10px] font-bold rounded-full flex items-center justify-center leading-none px-1 ring-2 ring-white shadow-sm">
+                      {cartCount}
+                    </span>
+                  )}
+                </button>
+              </Link>
 
               <button className="ml-1 bg-black text-white text-sm font-semibold px-5 py-2 rounded-lg hover:bg-gray-800 active:scale-95 transition-all duration-200 cursor-pointer">
                 Login
@@ -137,7 +144,7 @@ export default function Header() {
               >
                 <ShoppingCart size={22} className="text-gray-800" />
                 {cartCount > 0 && (
-                  <span className="absolute top-0.5 right-0.5 min-w-[16px] h-[16px] bg-black text-white text-[9px] font-bold rounded-full flex items-center justify-center leading-none px-0.5">
+                  <span className="absolute top-0 right-0 min-w-[16px] h-[16px] bg-black text-white text-[9px] font-bold rounded-full flex items-center justify-center leading-none px-1 ring-2 ring-white shadow-sm">
                     {cartCount}
                   </span>
                 )}
@@ -217,8 +224,8 @@ export default function Header() {
           </div>
 
         </div>
-      </header>
+      </header >
 
-    </div>
+    </div >
   );
 }

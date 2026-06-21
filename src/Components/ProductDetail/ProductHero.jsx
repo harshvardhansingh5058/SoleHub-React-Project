@@ -4,6 +4,9 @@
 // primary CTAs, bold uppercase tracked labels, tonal circle accents.
 
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../Context/CartContext";
 
 const defaultProduct = {
   brand: "Nike",
@@ -59,6 +62,7 @@ function StarRating({ rating }) {
 }
 
 export default function ProductHero({ product = defaultProduct }) {
+  const { addToCart } = useCart();
   const [activeImage, setActiveImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -68,6 +72,20 @@ export default function ProductHero({ product = defaultProduct }) {
     ((product.originalPrice - product.price) / product.originalPrice) * 100
   );
 
+  const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      toast.error("Please select a size");
+      return;
+    }
+
+    addToCart({ ...product, size: selectedSize }, quantity);
+
+    toast.success("Added to cart");
+
+    navigate("/cart");
+  };
   return (
     <section className="w-full bg-white py-8 sm:py-12 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,11 +117,10 @@ export default function ProductHero({ product = defaultProduct }) {
                   key={idx}
                   onClick={() => setActiveImage(idx)}
                   aria-label={`View image ${idx + 1}`}
-                  className={`relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 bg-gray-50 border overflow-hidden transition-colors ${
-                    activeImage === idx
-                      ? "border-black"
-                      : "border-gray-200 hover:border-gray-400"
-                  }`}
+                  className={`relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 bg-gray-50 border overflow-hidden transition-colors ${activeImage === idx
+                    ? "border-black"
+                    : "border-gray-200 hover:border-gray-400"
+                    }`}
                 >
                   <img
                     src={img}
@@ -175,11 +192,10 @@ export default function ProductHero({ product = defaultProduct }) {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`min-w-[56px] px-4 py-3 text-sm font-bold border transition-colors ${
-                      selectedSize === size
-                        ? "bg-black text-white border-black"
-                        : "bg-white text-gray-900 border-gray-200 hover:border-gray-900"
-                    }`}
+                    className={`min-w-[56px] px-4 py-3 text-sm font-bold border transition-colors ${selectedSize === size
+                      ? "bg-black text-white border-black"
+                      : "bg-white text-gray-900 border-gray-200 hover:border-gray-900"
+                      }`}
                   >
                     {size}
                   </button>
@@ -204,7 +220,14 @@ export default function ProductHero({ product = defaultProduct }) {
                   {quantity}
                 </span>
                 <button
-                  onClick={() => setQuantity((q) => Math.min(10, q + 1))}
+                  onClick={() => {
+                    if (quantity >= 5) {
+                      toast.error("Maximum 5 items allowed");
+                      return;
+                    }
+
+                    setQuantity((q) => q + 1);
+                  }}
                   aria-label="Increase quantity"
                   className="w-10 h-11 flex items-center justify-center text-gray-900 hover:bg-gray-50 transition-colors text-lg font-bold"
                 >
@@ -216,18 +239,20 @@ export default function ProductHero({ product = defaultProduct }) {
             {/* Actions */}
             <div className="flex flex-col gap-3">
               <div className="flex items-stretch gap-3">
-                <button className="flex-1 bg-black hover:bg-gray-800 transition-colors text-white text-sm font-black uppercase tracking-widest py-4">
-                  Add to Cart
+                <button
+                  className="flex-1 bg-black hover:bg-gray-800 transition-colors text-white text-sm font-black uppercase tracking-wider py-4"
+                  onClick={handleAddToCart}
+                >
+                  Add To Cart
                 </button>
                 <button
                   onClick={() => setWishlisted((w) => !w)}
                   aria-label="Add to wishlist"
                   aria-pressed={wishlisted}
-                  className={`w-14 flex items-center justify-center border transition-colors ${
-                    wishlisted
-                      ? "border-black bg-black"
-                      : "border-gray-200 hover:border-gray-900"
-                  }`}
+                  className={`w-14 flex items-center justify-center border transition-colors ${wishlisted
+                    ? "border-black bg-black"
+                    : "border-gray-200 hover:border-gray-900"
+                    }`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

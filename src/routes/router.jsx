@@ -10,6 +10,8 @@ import NewArrivals from "../pages/NewArrivals";
 import Sale from "../pages/Sale";
 import Contact from "../pages/Contact";
 import ProductDetail from "../pages/ProductDetail";
+import Cart from "../pages/Cart";
+import NotFound from "../pages/NotFound";
 
 
 
@@ -44,8 +46,16 @@ const router = createBrowserRouter(
                     element: <ProductDetail/>
 
                 },
-            ],
+                {
+                    path: "cart",
+                    element: <Cart/>
+                },
+            ]
         },
+        {
+            path: "*",
+            element: <NotFound/>
+        }
     ],
     {
         basename: import.meta.env.BASE_URL,
